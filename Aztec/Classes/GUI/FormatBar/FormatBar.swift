@@ -327,7 +327,9 @@ open class FormatBar: UIView {
     open override func didMoveToWindow() {
         super.didMoveToWindow()
 
-        updateForSafeAreaInsets()
+        if #available(iOS 11.0, *) {
+            updateForSafeAreaInsets()
+        }
     }
 
     open override func layoutSubviews() {
@@ -684,8 +686,15 @@ private extension FormatBar {
     /// Sets up the Constraints
     ///
     func configureConstraints() {
-        let leadingAnchor = safeAreaLayoutGuide.leadingAnchor
-        let trailingAnchor = safeAreaLayoutGuide.trailingAnchor
+        let leadingAnchor: NSLayoutXAxisAnchor
+        let trailingAnchor: NSLayoutXAxisAnchor
+        if #available(iOS 11.0, *) {
+            leadingAnchor = safeAreaLayoutGuide.leadingAnchor
+            trailingAnchor = safeAreaLayoutGuide.trailingAnchor
+        } else {
+            leadingAnchor = self.leadingAnchor
+            trailingAnchor = self.trailingAnchor
+        }
 
         ///Overflow toggle item
 

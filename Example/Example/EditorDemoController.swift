@@ -6,7 +6,8 @@ import Photos
 import UIKit
 import WordPressEditor
 
-class EditorDemoController: UIViewController {    
+@available(iOS 11.0, *)
+class EditorDemoController: UIViewController {
 
     fileprivate(set) lazy var formatBar: Aztec.FormatBar = {
         return self.createToolbar()
@@ -490,6 +491,7 @@ class EditorDemoController: UIViewController {
     }
 }
 
+@available(iOS 11.0, *)
 extension EditorDemoController : UITextViewDelegate {
     func textViewDidChangeSelection(_ textView: UITextView) {
         updateFormatBar()
@@ -540,6 +542,7 @@ extension EditorDemoController : UITextViewDelegate {
     }
 }
 
+@available(iOS 11.0, *)
 extension EditorDemoController : Aztec.TextViewFormattingDelegate {
     func textViewCommandToggledAStyle() {
         updateFormatBar()
@@ -547,10 +550,12 @@ extension EditorDemoController : Aztec.TextViewFormattingDelegate {
 }
 
 
+@available(iOS 11.0, *)
 extension EditorDemoController : UITextFieldDelegate {
 
 }
 
+@available(iOS 11.0, *)
 extension EditorDemoController {
     enum EditMode {
         case richText
@@ -569,6 +574,7 @@ extension EditorDemoController {
 
 // MARK: - Format Bar Delegate
 
+@available(iOS 11.0, *)
 extension EditorDemoController : Aztec.FormatBarDelegate {
     func formatBarTouchesBegan(_ formatBar: FormatBar) {
     }
@@ -584,6 +590,7 @@ extension EditorDemoController : Aztec.FormatBarDelegate {
 }
 
 // MARK: - Format Bar Actions
+@available(iOS 11.0, *)
 extension EditorDemoController {
     func handleAction(for barItem: FormatBarItem) {
         guard let identifier = barItem.identifier,
@@ -1061,12 +1068,14 @@ extension EditorDemoController {
 
 }
 
+@available(iOS 11.0, *)
 extension EditorDemoController: UINavigationControllerDelegate
 {
 }
 
 // MARK: - UIImagePickerControllerDelegate
 
+@available(iOS 11.0, *)
 extension EditorDemoController: UIImagePickerControllerDelegate
 {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -1104,6 +1113,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
 // MARK: - Constants
 //
 
+@available(iOS 11.0, *)
 extension EditorDemoController {
 
     static var tintedMissingImage: UIImage = {
@@ -1136,6 +1146,7 @@ extension EditorDemoController {
     }    
 }
 
+@available(iOS 11.0, *)
 extension FormattingIdentifier {
 
     var iconImage: UIImage {
@@ -1289,6 +1300,7 @@ extension FormattingIdentifier {
 
 // MARK: - Header and List presentation extensions
 
+@available(iOS 11.0, *)
 private extension Header.HeaderType {
     var formattingIdentifier: FormattingIdentifier {
         switch self {
@@ -1319,6 +1331,7 @@ private extension Header.HeaderType {
     }
 }
 
+@available(iOS 11.0, *)
 private extension TextList.Style {
     var formattingIdentifier: FormattingIdentifier {
         switch self {

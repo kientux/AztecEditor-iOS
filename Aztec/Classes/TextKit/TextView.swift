@@ -410,7 +410,11 @@ open class TextView: UITextView {
         defaultParagraphStyle: ParagraphStyle = ParagraphStyle.default,
         defaultMissingImage: UIImage) {
 
-        self.defaultFont = UIFontMetrics.default.scaledFont(for: defaultFont)
+        if #available(iOS 11.0, *) {
+            self.defaultFont = UIFontMetrics.default.scaledFont(for: defaultFont)
+        } else {
+            self.defaultFont = defaultFont
+        }
         
         self.defaultParagraphStyle = defaultParagraphStyle
         self.defaultMissingImage = defaultMissingImage

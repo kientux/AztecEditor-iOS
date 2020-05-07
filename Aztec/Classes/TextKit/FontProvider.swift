@@ -11,15 +11,17 @@ public class FontProvider {
 
     public lazy var monospaceFont: UIFont = {
         let baseFont = UIFont(descriptor:UIFontDescriptor(name: "Menlo", size: 14), size:14)
-        let font: UIFont
-        font = UIFontMetrics.default.scaledFont(for: baseFont)
-        return font
+        if #available(iOS 11.0, *) {
+            return UIFontMetrics.default.scaledFont(for: baseFont)
+        }
+        return baseFont
     }()
 
     public lazy var defaultFont: UIFont = {
         let baseFont = UIFont.systemFont(ofSize: 14)
-        let font: UIFont
-        font = UIFontMetrics.default.scaledFont(for: baseFont)        
-        return font
+        if #available(iOS 11.0, *) {
+            return UIFontMetrics.default.scaledFont(for: baseFont)
+        }
+        return baseFont
     }()
 }
