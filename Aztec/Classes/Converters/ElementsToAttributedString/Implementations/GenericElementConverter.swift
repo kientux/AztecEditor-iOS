@@ -95,19 +95,20 @@ class GenericElementConverter: ElementConverter {
         unsupported element: ElementNode,
         inheriting attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
         
-        let serializer = HTMLSerializer()
-        let attachment = HTMLAttachment()
-        
-        attachment.rootTagName = element.name
-        attachment.rawHTML = serializer.serialize(element)
-        
-        let content = NSMutableAttributedString(attachment: attachment, attributes: attributes)
-        
-        if element.needsClosingParagraphSeparatorIncludingDescendants() {
-            content.append(NSAttributedString(.paragraphSeparator, attributes: attributes))
-        }
-        
-        return content
+//        let serializer = HTMLSerializer()
+//        let attachment = HTMLAttachment()
+//
+//        attachment.rootTagName = element.name
+//        attachment.rawHTML = serializer.serialize(element)
+//
+//        let content = NSMutableAttributedString(attachment: attachment, attributes: attributes)
+//
+//        if element.needsClosingParagraphSeparatorIncludingDescendants() {
+//            content.append(NSAttributedString(.paragraphSeparator, attributes: attributes))
+//        }
+//
+//        return content
+        return NSMutableAttributedString()
     }
     
     private func convert(
